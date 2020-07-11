@@ -1,0 +1,19 @@
+<!--pages/email/email.wxml-->
+<view class='container' wx:if="{{registeredEmail==''}}">
+  <view class="content">
+    <form bindsubmit="formSubmit">
+      <text>新邮箱：</text>
+      <input name="newEmail" placeholder="example@Indream.com" bindinput="emailUpdated"/>
+      <text>验证码：</text>
+      <input name="code" placeholder="000000" bindinput="codeUpdated"/>
+      <button type="mini" bindtap="sendCode"> 获取验证码 </button>
+      <button type="primary" bindtap="confirmEmail"> 绑定 </button>
+    </form>  
+  </view>
+</view>
+<view class='container' wx:else>
+  <view class='content'>
+    <text>已绑邮箱: {{registeredEmail}}</text>
+    <button type="primary" bindtap="unlinkEmail"> 解绑 </button>
+  </view>
+</view>
